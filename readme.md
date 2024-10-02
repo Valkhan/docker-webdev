@@ -83,3 +83,5 @@ If you use more than one database service, you will need to change the PMA confi
 
 - Add more services
 - Improove start container scripts to gather the prefix from .env file
+- Update the current services to the latest supported version as needed, according to [End of Life](https://endoflife.date/).
+
