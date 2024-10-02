@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  pma:
+    image: phpmyadmin
+    container_name: "${COMPOSE_PROJECT_NAME}-pma"
+    environment:
+      PMA_HOST: ${DATABASE_SERVICE}
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      UPLOAD_LIMIT: ${UPLOAD_LIMIT}
+      MEMORY_LIMIT: ${MEMORY_LIMIT}
+    ports:
+      - "${HOST_MACHINE_PMA_PORT}:80"
+      - "${HOST_MACHINE_PMA_SECURE_PORT}:443"
+    volumes:
+      - /sessions
+      - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+      
+networks:
+  default:
+    driver: bridge
+    external: true
+    name: ${NETWORK_NAME}
+
+    
