@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  mariadb105:
+  mariadb114:
     build:
-      context: ./bins/mariadb105
-    container_name: "${COMPOSE_PROJECT_NAME}-mariadb105"
+      context: ./bins/mariadb114
+    container_name: "${COMPOSE_PROJECT_NAME}-mariadb114"
     restart: "always"
     ports:
       - "127.0.0.1:${HOST_MACHINE_MYSQL_PORT}:3306"

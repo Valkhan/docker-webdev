@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  mysql91:
+  mysql84:
     build:
-      context: ./bins/mysql91
-    container_name: "${COMPOSE_PROJECT_NAME}-mysql91"
+      context: ./bins/mysql84
+    container_name: "${COMPOSE_PROJECT_NAME}-mysql84"
     restart: "always"
     ports:
       - "127.0.0.1:${HOST_MACHINE_MYSQL_PORT}:3306"
